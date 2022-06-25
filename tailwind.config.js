@@ -11,6 +11,9 @@ module.exports = {
       alabaster: '#fafafa',
       white: '#ffffff',
     },
+    fontFamily: {
+      'sans-serif': 'Nunito Sans'
+    },
     extend: {},
   },
   plugins: [],

@@ -22,7 +22,5 @@ async function updateCountries() {
 </script>
 
 <template>
+<div class="font-sans-serif"></div>
 </template>
-
-<style>
-</style>
