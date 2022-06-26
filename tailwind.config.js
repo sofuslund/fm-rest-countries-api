@@ -12,7 +12,7 @@ module.exports = {
             white: "#ffffff",
         },
         fontFamily: {
-            "sans-serif": "Nunito Sans",
+            "serif": ["Nunito Sans", "sans-serif"],
             "fa-font-solid": "var(--fa-font-solid)"
         },
         extend: {},
