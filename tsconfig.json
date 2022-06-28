@@ -8,6 +8,7 @@
         },
         "strict": true,
         "lib": ["ES2017", "DOM", "DOM.Iterable"],
+        "typeRoots": ["./node_modules/@types", "./src/types"]
     },
 
     "references": [
