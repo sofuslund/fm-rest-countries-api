@@ -14,7 +14,7 @@ const capital = computed(() => {
 });
 </script>
 <template>
-    <div class="w-[17rem] rounded-xl overflow-hidden mx-auto">
+    <div class="w-[17rem] rounded-lg overflow-hidden mx-auto">
         <img class="w-full" :src="country.flags.svg" alt="">
         <div class="bg-white overflow-hidden">
             <div class="pl-7 py-3">
