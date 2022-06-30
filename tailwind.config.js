@@ -15,7 +15,11 @@ module.exports = {
             "serif": ["Nunito Sans", "sans-serif"],
             "fa-font-solid": "var(--fa-font-solid)"
         },
-        extend: {},
+        extend: {
+            boxShadow: {
+                "around": "0px 0px .5rem hsl(360, 0%, 85%)"
+            }
+        },
     },
     plugins: [],
 };

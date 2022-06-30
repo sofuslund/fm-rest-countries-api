@@ -25,7 +25,7 @@ const attrsExceptClass = computed(() => {
     <div :class="$attrs['class']">
         <div class="relative">
             <i class="fa-solid fa-magnifying-glass absolute left-10 -translate-x-1/2 top-1/2 -translate-y-1/2 opacity-40"></i>
-            <input v-bind="attrsExceptClass" class="bg-white focus:outline-none w-full py-3 pl-20 shadow-md rounded-md placeholder-gray placeholder:font-light placeholder:text-[.8rem] placeholder:opacity-60" type="text" />
+            <input v-bind="attrsExceptClass" class="bg-white focus:outline-none w-full py-3 pl-20 shadow-around rounded-md placeholder-gray placeholder:font-light placeholder:text-[.8rem] placeholder:opacity-60" type="text" />
         </div>
     </div>
 </template>

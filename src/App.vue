@@ -41,11 +41,11 @@ const resultCountries = computed(() => {
         <ThemeToggle class=""></ThemeToggle>
     </div>
     <div>
-        <SearchBar @input="(e) => (inputVal = e.target.value)"></SearchBar>
-        <FilterDropdown text="Filter by Region" :options="['Africa', 'America', 'Asia', 'Europe', 'Oceania']"></FilterDropdown>
+        <SearchBar placeholder="Search for a country..." class="mx-4 mt-6 mb-10" @input="(e) => (inputVal = e.target.value)"></SearchBar>
+        <FilterDropdown class="mx-4 my-7" text="Filter by Region" :options="['Africa', 'America', 'Asia', 'Europe', 'Oceania']"></FilterDropdown>
         <div class="flex gap-12 flex-col">
             <CountryCard
-                class="shadow-md"
+                class="shadow-around"
                 v-for="(country, idx) in resultCountries"
                 :key="idx"
                 :country="country"
