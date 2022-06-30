@@ -7,8 +7,6 @@ export default {
 import { computed } from "@vue/reactivity";
 import { useAttrs } from "vue";
 
-const props = defineProps<{placeholder: string}>();
-
 const attrs = useAttrs();
 
 const attrsExceptClass = computed(() => {
