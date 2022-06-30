@@ -17,7 +17,7 @@ module.exports = {
         },
         extend: {
             boxShadow: {
-                "around": "0px 0px .5rem hsl(360, 0%, 85%)"
+                "around": "0px 0px .75rem hsl(360, 0%, 90%)"
             }
         },
     },
