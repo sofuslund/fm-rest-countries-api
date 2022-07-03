@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 
-type Theme = "dark" | "light";
-
 const emit = defineEmits<{(e: "update:modelValue", val: Theme): void}>();
 const props = defineProps<{modelValue: Theme}>();
 

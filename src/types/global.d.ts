@@ -7,5 +7,6 @@ declare global {
         region: string,
         capital?: string[],
         flags: {svg: string}
-    }
+    };
+    type Theme = "dark" | "light";
 };
