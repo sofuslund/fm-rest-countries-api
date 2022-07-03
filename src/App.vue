@@ -5,7 +5,7 @@ import CountryCard from "./components/CountryCard.vue";
 import ThemeToggle from "./components/ThemeToggle.vue";
 import FilterDropdown from "./components/FilterDropdown.vue";
 
-const inputVal = ref("ger");
+const inputVal = ref("");
 const allCountries: Ref<Country[]> = ref([]);
 
 // Fetch the data about ALL countries! (And store it... duh)
