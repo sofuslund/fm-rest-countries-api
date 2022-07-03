@@ -22,7 +22,7 @@ function switchTheme() {
 </script>
 <template>
 <div @click="switchTheme" class="rounded-full hover:bg-alabaster px-2 text-woodsmoke font-semibold select-none">
-    <div v-if="theme === 'dark'">
+    <div v-if="theme === 'light'">
         <i class="fa-regular fa-moon mr-3"></i>
         <span>Dark Mode</span>
     </div>
