@@ -1,22 +1,29 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
-const emit = defineEmits<{(e: "newTheme", theme: "dark" | "light"): void}>();
+type Theme = "dark" | "light";
 
-let theme = ref<"dark" | "light">("light");
+const emit = defineEmits<{(e: "update:modelValue", val: Theme): void}>();
+const props = defineProps<{modelValue: Theme}>();
 
-function switchMode() {
+let theme = ref<Theme>(props.modelValue);
+
+watch(() => props.modelValue, val => {
+    theme.value = val;
+});
+
+function switchTheme() {
     if(theme.value === "dark") {
         theme.value = "light";
     } else {
         theme.value = "dark";
     }
-    emit("newTheme", theme.value);
+    emit("update:modelValue", theme.value);
 }
 
 </script>
 <template>
-<div @click="switchMode" class="rounded-full hover:bg-alabaster px-2 text-woodsmoke font-semibold select-none">
+<div @click="switchTheme" class="rounded-full hover:bg-alabaster px-2 text-woodsmoke font-semibold select-none">
     <div v-if="theme === 'dark'">
         <i class="fa-regular fa-moon mr-3"></i>
         <span>Dark Mode</span>
