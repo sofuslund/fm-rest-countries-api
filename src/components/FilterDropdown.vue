@@ -31,16 +31,16 @@ onMounted(() => {
 
 </script>
 <template>
-    <div ref="hoverArea" class="group w-[13rem] font-semibold text-sm relative">
-        <div ref="clickArea" class="shadow-around bg-white rounded-lg py-4 px-3 overflow-auto relative">
-            <span class="text-woodsmoke ml-4">{{ text }}</span>
+    <div ref="hoverArea" class="group w-[13rem] font-semibold dark:font-light text-sm relative">
+        <div ref="clickArea" class="shadow-around dark:shadow-around-dark bg-white dark:bg-oxford-blue rounded-lg py-4 px-3 overflow-auto relative">
+            <span class="text-woodsmoke dark:text-alabaster ml-4">{{ text }}</span>
             <i :class="{'rotate-180': dropdownShown}" class="transition-all fa-solid fa-angle-down fa-sm absolute right-6 top-1/2"></i>
         </div>
         <div :class="[dropdownShown ? 'opacity-100' : 'opacity-0', dropdownShown ? '' : 'hidden']" class="absolute w-full pt-2 transition-all">
-            <div class="shadow-around bg-white px-3 w-full overflow-hidden rounded-lg">
+            <div class="shadow-around dark:shadow-around-dark bg-white dark:bg-oxford-blue px-3 w-full overflow-hidden rounded-lg">
                 <ul>
-                    <li @click="selectedIdx = idx; $emit('newValue', selected)" :class="idx === selectedIdx ? 'list-disc !text-woodsmoke' : ''" class="ml-4 my-2 first:mt-4 last:mb-4 hover:list-disc hover:text-gray" v-for="(option, idx) of options" key="idx">
-                        <span class="text-woodsmoke">{{ option }}</span>
+                    <li @click="selectedIdx = idx; $emit('newValue', selected)" :class="idx === selectedIdx ? 'list-disc !text-woodsmoke !text-alabaster' : ''" class="ml-4 my-2 first:mt-4 last:mb-4 hover:list-disc hover:text-gray" v-for="(option, idx) of options" key="idx">
+                        <span class="text-woodsmoke dark:text-alabaster">{{ option }}</span>
                     </li>
                 </ul>
             </div>
