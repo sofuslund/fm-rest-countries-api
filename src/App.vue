@@ -33,23 +33,27 @@ const resultCountries = computed(() => {
     // Return an array without the match indexes and only the numbers
     return arr.map((elm) => elm.country);
 });
+
+let theme = ref<Theme>("light");
 </script>
 
 <template>
-    <div class="py-7 px-5 bg-white shadow-md">
-        <h1 class="font-extrabold">Where in the world?</h1>
-        <ThemeToggle class=""></ThemeToggle>
-    </div>
-    <div>
-        <SearchBar placeholder="Search for a country..." class="mx-4 mt-6 mb-10" @input="(e) => (inputVal = e.target.value)"></SearchBar>
-        <FilterDropdown class="mx-4 my-7" text="Filter by Region" :options="['Africa', 'America', 'Asia', 'Europe', 'Oceania']"></FilterDropdown>
-        <div class="flex gap-12 flex-col">
-            <CountryCard
-                class="shadow-around"
-                v-for="(country, idx) in resultCountries"
-                :key="idx"
-                :country="country"
-            ></CountryCard>
+    <div :class="{dark: theme === 'dark'}">
+        <div class="py-7 px-5 bg-white shadow-md">
+            <h1 class="font-extrabold inline">Where in the world?</h1>
+            <ThemeToggle v-model="theme" class="float-right"></ThemeToggle>
+        </div>
+        <div>
+            <SearchBar placeholder="Search for a country..." class="mx-4 mt-6 mb-10" @input="(e) => (inputVal = e.target.value)"></SearchBar>
+            <FilterDropdown class="mx-4 my-7" text="Filter by Region" :options="['Africa', 'America', 'Asia', 'Europe', 'Oceania']"></FilterDropdown>
+            <div class="flex gap-12 flex-col">
+                <CountryCard
+                    class="shadow-around"
+                    v-for="(country, idx) in resultCountries"
+                    :key="idx"
+                    :country="country"
+                ></CountryCard>
+            </div>
         </div>
     </div>
 </template>
