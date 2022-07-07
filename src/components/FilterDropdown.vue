@@ -39,7 +39,7 @@ onMounted(() => {
         <div :class="[dropdownShown ? 'opacity-100' : 'opacity-0', dropdownShown ? '' : 'hidden']" class="absolute w-full pt-2 transition-all">
             <div class="shadow-around dark:shadow-around-dark bg-white dark:bg-oxford-blue px-3 w-full overflow-hidden rounded-lg">
                 <ul>
-                    <li @click="selectedIdx = idx; $emit('newValue', selected)" :class="idx === selectedIdx ? 'list-disc !text-woodsmoke !text-alabaster' : ''" class="ml-4 my-2 first:mt-4 last:mb-4 hover:list-disc hover:text-gray" v-for="(option, idx) of options" key="idx">
+                    <li @click="selectedIdx = idx; $emit('newValue', selected)" :class="idx === selectedIdx ? 'list-disc !text-woodsmoke !dark:text-alabaster' : ''" class="ml-4 my-2 first:mt-4 last:mb-4 hover:list-disc hover:text-gray" v-for="(option, idx) of options" key="idx">
                         <span class="text-woodsmoke dark:text-alabaster">{{ option }}</span>
                     </li>
                 </ul>
