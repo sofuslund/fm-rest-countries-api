@@ -41,20 +41,22 @@ let theme = ref<Theme>("light");
 
 <template>
     <div :class="{dark: theme === 'dark'}">
-        <div class="py-7 px-5 bg-white dark:bg-oxford-blue shadow-md dark:shadow-md-dark">
-            <h1 class="font-extrabold inline dark:text-white">Where in the world?</h1>
-            <ThemeToggle v-model="theme" class="float-right"></ThemeToggle>
-        </div>
-        <div class="dark:bg-ebony-clay overflow-hidden">
-            <SearchBar placeholder="Search for a country..." class="lg:max-w-lg lg:w-full lg:ml-16 lg:mt-12 lg:inline-block mx-4 mt-6 mb-10" @input="(e) => (inputVal = e.target.value)"></SearchBar>
-            <FilterDropdown class="lg:float-right lg:mt-12 lg:mr-16 mx-4 my-7" text="Filter by Region" :options="['Africa', 'America', 'Asia', 'Europe', 'Oceania']"></FilterDropdown>
-            <div class="md:mx-16 grid grid-cols-[repeat(auto-fill,_17rem)] justify-center md:justify-around lg:justify-between gap-x-3 gap-y-12">
-                <CountryCard
-                    class="w-[17rem] lg:m-0 shadow-around dark:shadow-around-dark"
-                    v-for="(country, idx) in resultCountries"
-                    :key="idx"
-                    :country="country"
-                ></CountryCard>
+        <div class="bg-alabaster dark:bg-ebony-clay h-screen">
+            <div class="py-7 px-5 bg-white dark:bg-oxford-blue shadow-md dark:shadow-md-dark">
+                <h1 class="font-extrabold inline dark:text-white">Where in the world?</h1>
+                <ThemeToggle v-model="theme" class="float-right"></ThemeToggle>
+            </div>
+            <div class="dark:bg-ebony-clay overflow-hidden">
+                <SearchBar placeholder="Search for a country..." class="lg:max-w-lg lg:w-full lg:ml-16 lg:mt-12 lg:inline-block mx-4 mt-6 mb-10" @input="(e) => (inputVal = e.target.value)"></SearchBar>
+                <FilterDropdown class="lg:float-right lg:mt-12 lg:mr-16 mx-4 my-7" text="Filter by Region" :options="['Africa', 'America', 'Asia', 'Europe', 'Oceania']"></FilterDropdown>
+                <div class="md:mx-16 grid grid-cols-[repeat(auto-fill,_17rem)] justify-center md:justify-around lg:justify-between gap-x-3 gap-y-12">
+                    <CountryCard
+                        class="w-[17rem] lg:m-0 shadow-around dark:shadow-around-dark"
+                        v-for="(country, idx) in resultCountries"
+                        :key="idx"
+                        :country="country"
+                    ></CountryCard>
+                </div>
             </div>
         </div>
     </div>
