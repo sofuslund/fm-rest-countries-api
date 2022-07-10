@@ -19,7 +19,8 @@ module.exports = {
             boxShadow: {
                 "md-dark": "0px 0px .50rem hsl(360, 0%, 10%)",
                 around: "0px 0px .75rem hsl(360, 0%, 90%)",
-                "around-dark": "0px 0px .75rem hsl(360, 0%, 12%)"
+                "around-strong": "0px 0px .5rem .01rem hsl(360, 0%, 80%)",
+                "around-dark": "0px 0px .5rem hsl(360, 0%, 12%)"
             }
         },
     },
