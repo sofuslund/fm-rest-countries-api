@@ -56,16 +56,16 @@ const infoBlocks = computed(() => {
             <button @click="expanded = false" class="bg-white dark:bg-oxford-blue mt-9 mb-16 shadow-around-strong dark:shadow-around-dark py-1 px-5 rounded dark:text-white">
                 <span><i class="fa-solid fa-arrow-left-long mr-2"></i>Back</span>
             </button>
-            <div class="flex flex-wrap">
-                <img class="w-full object-cover mb-10" :src="country.flags.svg" alt="flag">
+            <div class="flex flex-wrap gap-20">
+                <img class="w-full max-w-sm object-cover mb-10" :src="country.flags.svg" alt="flag">
                 <div class="flex flex-wrap justify-between">
                     <h1 class="w-full dark:text-white font-extrabold text-xl">{{country.name.common}}</h1>
-                    <div class="">
+                    <div class="my-3">
                         <p class="font-semibold text-sm leading-8" v-for="(value, key, idx) of infoBlocks![0]" :key="idx">
                             {{key}}: <span class="font-light">{{value}}</span>
                         </p>
                     </div>
-                    <div class="">
+                    <div class="my-3">
                         <p class="font-semibold text-sm leading-8" v-for="(value, key, idx) of infoBlocks![1]" :key="idx">
                             {{key}}: <span class="font-light">{{value}}</span>
                         </p>
