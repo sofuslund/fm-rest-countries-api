@@ -64,10 +64,10 @@ const info2 = computed(() => {
                 <span><i class="fa-solid fa-arrow-left-long mr-2"></i>Back</span>
             </button>
         </RouterLink>
-        <div class="flex flex-wrap gap-x-20">
+        <div class="flex flex-wrap md:flex-nowrap gap-x-10 justify-between">
             <img class="w-full max-w-sm md:max-w-[40%] object-cover mb-10" :src="country.flags.svg" alt="flag">
             <div class="flex flex-wrap justify-between">
-                <h1 class="w-full dark:text-white font-extrabold text-xl">{{country.name.common}}</h1>
+                <h1 class="dark:text-white font-extrabold text-xl">{{country.name.common}}</h1>
                 <div class="my-3">
                     <p class="font-semibold text-sm leading-8" v-for="(value, key, idx) of info1" :key="idx">
                         {{key}}: <span class="font-light">{{value}}</span>

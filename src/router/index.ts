@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router";
+import { nextTick } from "vue";
 
 import AppHome from "@/views/HomeView.vue";
 import AppCountryPage from "@/views/CountryView.vue";
@@ -10,6 +11,24 @@ const routes = [
 
 const router = createRouter({
     history: createWebHashHistory(),
-    routes
+    routes,
+    scrollBehavior(to, from, savedPosition) {
+        return new Promise((resolve, reject) => {
+            if(savedPosition) {
+                // create an Observer instance
+                const resizeObserver = new ResizeObserver(entries => {
+                    if(entries[0].target.clientHeight >= savedPosition.top) {
+                        resolve(savedPosition);
+                        resizeObserver.disconnect();
+                    }
+                });
+                
+                // start observing a DOM node
+                resizeObserver.observe(document.body);
+            } else {
+                resolve({ top: 0 });
+            }
+        });
+    },
 });
 export default router;

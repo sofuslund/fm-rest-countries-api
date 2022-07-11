@@ -8,7 +8,7 @@ let theme = ref<Theme>("light");
 
 <template>
     <div :class="{dark: theme === 'dark'}">
-        <div class="bg-alabaster dark:bg-ebony-clay h-screen">
+        <div class="bg-alabaster dark:bg-ebony-clay">
             <RouterLink to="/home">
                 <div class="py-7 px-5 bg-white dark:bg-oxford-blue shadow-md dark:shadow-md-dark relative z-10">
                     <h1 class="font-extrabold inline dark:text-white">Where in the world?</h1>
@@ -18,7 +18,7 @@ let theme = ref<Theme>("light");
             
             <RouterView class="relative" v-slot="{Component, route}">
                 <KeepAlive>
-                    <component :is="Component" :key="route.fullPath" ></component>
+                    <component :is="Component" :key="route.fullPath"></component>
                 </KeepAlive>
             </RouterView>
         </div>
