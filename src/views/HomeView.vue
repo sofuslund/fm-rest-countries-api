@@ -22,7 +22,6 @@ const resultCountries = computed(() => {
     // This function iterates each country in a for loop and checks if the country matches with the search string provided by the user. If it does it will save the country as a result in the country array.
 
 
-
     // This country array will both store the name of the matched country but also the index of the match. For example if the user searchs "den" the index will be 3 in sweDEN and 0 DENmark.
     const arr: {country: Country, matchIndex: number}[] = [];
 
@@ -33,7 +32,16 @@ const resultCountries = computed(() => {
         }
     }
     // Sort the array of results with the results with the lowest match index first.
-    arr.sort((a, b) => (a.matchIndex < b.matchIndex ? -1 : 1));
+    arr.sort((a, b) => {
+        if(a.matchIndex < b.matchIndex) return -1;
+        // If they're both matched from the start: sort the one with the smallest name first
+        else if (a.matchIndex === b.matchIndex) {
+            if(a.country.name.common.length < b.country.name.common.length)
+                return -1;
+            return 1;
+        }
+        return 1;
+    });
     // Return an array without the match indexes and only the numbers
 
     return arr.map((elm) => elm.country);
