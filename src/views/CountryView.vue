@@ -52,20 +52,20 @@ const info2 = computed(() => {
 </script>
 <template>
 <div>
-    <div v-if="country === undefined">
+    <div class="dark:text-white" v-if="country === undefined">
         Loading...
         <div v-if="error !== undefined">
             {{error}}
         </div>
     </div>
-    <div v-else class="absolute px-6 left-0 top-0 w-full h-full bg-alabaster dark:bg-ebony-clay dark:text-white">
-        <router-link to="/home">
+    <div v-else class="absolute px-6 lg:px-12 xl:px-20 left-0 top-0 w-full h-full bg-alabaster dark:bg-ebony-clay dark:text-white">
+        <RouterLink to="/home">
             <button class="bg-white dark:bg-oxford-blue mt-9 mb-16 shadow-around-strong dark:shadow-around-dark py-1 px-5 rounded dark:text-white">
                 <span><i class="fa-solid fa-arrow-left-long mr-2"></i>Back</span>
             </button>
-        </router-link>
-        <div class="flex flex-wrap gap-20">
-            <img class="w-full max-w-sm object-cover mb-10" :src="country.flags.svg" alt="flag">
+        </RouterLink>
+        <div class="flex flex-wrap gap-x-20">
+            <img class="w-full max-w-sm md:max-w-[40%] object-cover mb-10" :src="country.flags.svg" alt="flag">
             <div class="flex flex-wrap justify-between">
                 <h1 class="w-full dark:text-white font-extrabold text-xl">{{country.name.common}}</h1>
                 <div class="my-3">

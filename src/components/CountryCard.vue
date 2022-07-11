@@ -18,7 +18,7 @@ const capital = computed(() => {
         <div class="cursor-pointer rounded-lg overflow-hidden mx-auto">
             <img class="h-[10.5rem] w-full object-cover" :src="country.flags.svg" alt="flag">
             <div class="bg-white dark:bg-oxford-blue overflow-hidden">
-                <div class="pl-7 py-3">
+                <div class="pl-7 py-3 h-[12rem]">
                     <h1 class="my-3 font-extrabold dark:font-semibold text-xl text-woodsmoke dark:text-white">{{country.name.common}}</h1>
                     <p class="font-extrabold dark:font-extralight text-oxford-blue dark:text-white">Population: <span class="text-gray font-semibold">{{country.population.toLocaleString()}}</span></p>
                     <p class="font-extrabold dark:font-extralight text-oxford-blue dark:text-white">Region: <span class="text-gray font-semibold">{{country.region}}</span></p>
