@@ -17,8 +17,9 @@ const router = createRouter({
             if(savedPosition) {
                 // create an Observer instance
                 const resizeObserver = new ResizeObserver(entries => {
-                    if(entries[0].target.clientHeight >= savedPosition.top) {
-                        resolve(savedPosition);
+                    if(entries[0].target.clientHeight >= savedPosition.top + screen.height) {
+                        console.log(entries[0].target.clientHeight, screen.height, savedPosition.top + screen.height, savedPosition);
+                        resolve({...savedPosition, behavior: "smooth"});
                         resizeObserver.disconnect();
                     }
                 });
