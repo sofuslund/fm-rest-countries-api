@@ -8,19 +8,20 @@ import { ref, computed, type Ref } from "vue";
 const inputVal = ref("");
 const allCountries: Ref<Country[]> = ref([]);
 
-console.log("Starting fetch");
 // Fetch the data about all countries
 fetch("https://restcountries.com/v3.1/all")
     .then((response) => response.json())
     .then((data) => {
         allCountries.value = data;
-        console.log("Fetch done");
     })
     .catch((err) => alert(err));
 
 const resultCountries = computed(() => {
     // This function iterates each country in a for loop and checks if the country matches with the search string provided by the user. If it does it will save the country as a result in the country array.
 
+
+    // If the user hasn't yet entered a search string then the application should just show an overview of the most populated countries. 
+    if(inputVal.value === "") return allCountries.value.filter(country => country.population > 50000000).sort((a, b) => a.population > b.population ? -1 : 1);
 
     // This country array will both store the name of the matched country but also the index of the match. For example if the user searchs "den" the index will be 3 in sweDEN and 0 DENmark.
     const arr: {country: Country, matchIndex: number}[] = [];
@@ -31,6 +32,7 @@ const resultCountries = computed(() => {
             arr.push({country: country, matchIndex: matchIdx});
         }
     }
+
     // Sort the array of results with the results with the lowest match index first.
     arr.sort((a, b) => {
         if(a.matchIndex < b.matchIndex) return -1;
