@@ -8,11 +8,13 @@ import { ref, computed, type Ref } from "vue";
 const inputVal = ref("");
 const allCountries: Ref<Country[]> = ref([]);
 
-// Fetch the data about ALL countries! (And store it... duh)
+console.log("Starting fetch");
+// Fetch the data about all countries
 fetch("https://restcountries.com/v3.1/all")
     .then((response) => response.json())
     .then((data) => {
         allCountries.value = data;
+        console.log("Fetch done");
     })
     .catch((err) => alert(err));
 
@@ -33,15 +35,17 @@ const resultCountries = computed(() => {
     // Sort the array of results with the results with the lowest match index first.
     arr.sort((a, b) => (a.matchIndex < b.matchIndex ? -1 : 1));
     // Return an array without the match indexes and only the numbers
+
     return arr.map((elm) => elm.country);
 });
 </script>
 <template>
-    <div class="relative min-h-screen bg-alabaster dark:bg-ebony-clay overflow-hidden">
+    <div class="min-h-screen bg-alabaster dark:bg-ebony-clay overflow-hidden">
         <SearchBar placeholder="Search for a country..." class="lg:max-w-lg lg:w-full lg:ml-16 lg:mt-12 lg:inline-block mx-4 mt-6 mb-10" @input="(e) => (inputVal = e.target.value)"></SearchBar>
         <FilterDropdown class="lg:float-right lg:mt-12 lg:mr-16 mx-4 my-7" text="Filter by Region" :options="['Africa', 'America', 'Asia', 'Europe', 'Oceania']"></FilterDropdown>
         <div class="mb-8 md:mx-16 grid grid-cols-[repeat(auto-fill,_17rem)] justify-center md:justify-around lg:justify-between gap-x-3 2xl:gap-x-20 gap-y-12">
             <CountryCard
+                @click="$router.push({name: 'countries', params: {cca2: country.cca2}})"
                 class="w-[17rem] lg:m-0 shadow-around dark:shadow-around-dark"
                 v-for="(country, idx) in resultCountries"
                 :key="idx"

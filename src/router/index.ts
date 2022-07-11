@@ -5,7 +5,7 @@ import AppCountryPage from "@/views/CountryView.vue";
 
 const routes = [
     {path: "/home", component: AppHome, alias: ["/"]},
-    {path: "/country/:countryCCA2", component: AppCountryPage}
+    {path: "/countries/:cca2", name: "countries", component: AppCountryPage, props: true}
 ];
 
 const router = createRouter({

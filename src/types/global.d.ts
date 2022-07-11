@@ -9,6 +9,7 @@ declare global {
         capital?: string[],
         flags: {svg: string},
         tld: any,
+        cca2: string,
         cca3: string,
         languages: {[key: string]:  string}[],
         currencies: {[key: string]: {name: string}}[],
