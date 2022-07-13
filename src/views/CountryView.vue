@@ -51,14 +51,14 @@ const info2 = computed(() => {
 });
 </script>
 <template>
-<div>
+<div class="h-full dark:bg-ebony-clay">
     <div class="dark:text-white" v-if="country === undefined">
         Loading...
         <div v-if="error !== undefined">
             {{error}}
         </div>
     </div>
-    <div v-else class="absolute px-6 lg:px-12 xl:px-20 left-0 top-0 w-full h-full bg-alabaster dark:bg-ebony-clay dark:text-white">
+    <div v-else class="px-6 lg:px-12 xl:px-20 left-0 top-0 w-full h-full bg-alabaster dark:text-white dark:bg-ebony-clay">
         <RouterLink to="/home">
             <button class="bg-white dark:bg-oxford-blue mt-9 mb-16 shadow-around-strong dark:shadow-around-dark py-1 px-5 rounded dark:text-white">
                 <span><i class="fa-solid fa-arrow-left-long mr-2"></i>Back</span>
