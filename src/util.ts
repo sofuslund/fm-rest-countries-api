@@ -1,3 +1,4 @@
+let hover = window.matchMedia("(hover: hover)").matches;
 export function canHover(){
-    return window.matchMedia("(hover: hover)").matches;
+    return hover;
 };

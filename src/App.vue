@@ -16,12 +16,12 @@ onMounted(() => {
 <template>
     <div :class="{dark: theme === 'dark'}">
         <div class="bg-alabaster dark:bg-ebony-clay min-h-screen">
-            <RouterLink to="/home">
-                <div class="py-7 px-5 bg-white dark:bg-oxford-blue shadow-md dark:shadow-md-dark relative z-10">
-                    <h1 class="font-extrabold inline dark:text-white">Where in the world?</h1>
+            <div class="py-7 px-5 bg-white dark:bg-oxford-blue shadow-md dark:shadow-md-dark relative z-10">
+                    <RouterLink to="/home">
+                        <h1 class="font-extrabold inline dark:text-white">Where in the world?</h1>
+                    </RouterLink>
                     <ThemeToggle v-model="theme" save-item="theme" class="float-right"></ThemeToggle>
                 </div>
-            </RouterLink>
             
             <RouterView v-slot="{Component, route}">
                 <KeepAlive>
