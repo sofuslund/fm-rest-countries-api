@@ -13,7 +13,7 @@ declare global {
         cca3: string,
         languages: {[key: string]:  string}[],
         currencies: {[key: string]: {name: string}}[],
-        borders: any,
+        borders: any[],
     };
     type Theme = "dark" | "light";
 };

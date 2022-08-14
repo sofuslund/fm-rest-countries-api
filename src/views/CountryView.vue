@@ -4,6 +4,7 @@ import { computed, onMounted, ref } from "vue";
 const props = defineProps<{ cca2: string}>();
 
 let country = ref<Country>();
+let borderCountries = ref<Country[]>([]);
 
 let error: any;
 
@@ -13,12 +14,26 @@ onMounted(() => {
             if(response.ok)
                 return response.json();
             else
-                error = `Server responded with status ${response.status}`;
+                throw new Error(`Server responded with status ${response.status}`);
         })
         .then(countryData => {
             if(countryData.length > 1)
                 console.log("Oops");
             country.value = countryData[0];
+
+            if(!country.value) return;
+            for(let borderCountry of country.value.borders) {
+                fetch(`https://restcountries.com/v3.1/alpha/${borderCountry}`)
+                    .then(response => {
+                        if(response.ok)
+                            return response.json()
+                        else
+                            throw new Error(`Server responded with status ${response.status}`);
+                    })
+                    .then(json => {
+                        borderCountries.value?.push(json[0]);
+                    });
+            }
         })
         .catch(err => error = err);
 });
@@ -43,12 +58,15 @@ const info1 = computed(() => {
 const info2 = computed(() => {
     if(country.value === undefined)
         return;
+    let tld = country.value.tld;
+    if(Array.isArray(country.value.tld)) tld = country.value.tld.join(", ");
     return {
-        "Top Level Domain": country.value.tld.join(", "),
+        "Top Level Domain": tld,
         "Currencies": Object.values(country.value.currencies).map(cur => cur.name).join(", "),
         "Languages": Object.values(country.value.languages).join(", "),
     }
 });
+
 </script>
 <template>
 <div class="h-full dark:bg-ebony-clay">
@@ -79,6 +97,12 @@ const info2 = computed(() => {
                             {{key}}: <span class="font-light">{{value}}</span>
                         </p>
                     </div>
+                </div>
+                <h2 class="font-semibold dark:text-white mb-5 mt-8 text-lg">
+                    Border Countries:
+                </h2>
+                <div class="flex flex-wrap gap-x-3 gap-y-2 mb-20">
+                    <router-link v-for="borderCountry in borderCountries" class="inline-block shadow-around dark:shadow-around-dark rounded text-sm font-light py-1.5 px-7" :to="`/countries/${borderCountry.cca2}`">{{borderCountry.name.common}}</router-link>
                 </div>
             </div>
         </div>
