@@ -15,5 +15,6 @@ declare global {
         currencies: {[key: string]: {name: string}}[],
         borders: any[],
     };
+    type Region = any;
     type Theme = "dark" | "light";
 };

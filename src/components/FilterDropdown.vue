@@ -4,7 +4,7 @@ import { ref, onMounted, computed} from "vue";
 import { canHover } from "@/util";
 
 const props = defineProps<{ text: string, options: string[] }>();
-const emit = defineEmits<{ (e: "newValue", val: string | null): void }>();
+const emit = defineEmits<{ (e: "newValue", val: Region): void }>();
 
 let selectedIdx = ref<number | null>(null);
 let dropdownShown = ref(false);
