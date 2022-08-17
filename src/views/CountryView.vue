@@ -76,38 +76,38 @@ const info2 = computed(() => {
             {{error}}
         </div>
     </div>
-    <div v-else class="px-6 md:px-10 lg:px-12 xl:px-20 left-0 top-0 w-full h-full bg-alabaster dark:text-white dark:bg-ebony-clay">
+    <div v-else class="px-6 md:px-10 lg:px-12 xl:px-20 2xl:px-32 left-0 top-0 w-full h-full bg-alabaster dark:text-white dark:bg-ebony-clay">
         <RouterLink to="/home">
             <button class="bg-white dark:bg-oxford-blue mt-9 mb-16 shadow-around-strong dark:shadow-around-dark py-1 px-5 rounded dark:text-white">
                 <span><i class="fa-solid fa-arrow-left-long mr-2"></i>Back</span>
             </button>
         </RouterLink>
-        <div class="flex flex-wrap justify-between max-w-md sm:max-w-lg md:max-w-full md:flex-nowrap md:gap-x-[4rem] mx-auto md:m-0">
+        <div class="flex flex-wrap justify-between max-w-md sm:max-w-lg md:max-w-full md:flex-nowrap md:gap-x-[7vw] mx-auto md:m-0">
             <!-- Image -->
             <img class="w-full md:max-w-[40%] md:object-contain object-cover mb-10" :src="country.flags.svg" alt="flag">
             <!-- Text -->
-            <div class="">
+            <div class="flex-grow text-[1vw]">
                 <!-- Heading -->
-                <h1 class="dark:text-white font-extrabold text-xl">{{country.name.common}}</h1>
+                <h1 class="dark:text-white font-extrabold text-[1.9rem]">{{country.name.common}}</h1>
                 <!-- Two info blocks -->
                 <div class="flex flex-wrap justify-between gap-x-10 flex-shrink-0">
                     <div class="my-3">
-                        <p class="font-semibold leading-8 md:text-[.8rem]" v-for="(value, key, idx) of info1" :key="idx">
+                        <p class="font-semibold leading-8 md:text-[1rem]" v-for="(value, key, idx) of info1" :key="idx">
                             {{key}}: <span class="font-light">{{value}}</span>
                         </p>
                     </div>
                     <div class="my-3">
-                        <p class="font-semibold leading-8 md:text-[.8rem]" v-for="(value, key, idx) of info2" :key="idx">
+                        <p class="font-semibold leading-8 md:text-[1rem]" v-for="(value, key, idx) of info2" :key="idx">
                             {{key}}: <span class="font-light">{{value}}</span>
                         </p>
                     </div>
                 </div>
                 <!-- Border countries -->
                 <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-24 mt-8 sm:mb-0">
-                    <h2 class="w-full font-semibold dark:text-white text-lg sm:float-left sm:w-auto sm:m-0 sm:mr-4">
+                    <h2 class="w-full font-semibold dark:text-white text-[1.2rem] sm:float-left sm:w-auto sm:m-0 sm:mr-4">
                         Border Countries:
                     </h2>
-                    <router-link v-for="borderCountry in borderCountries" class="inline-block shadow-around dark:shadow-around-dark rounded text-sm font-light py-1.5 px-7" :to="`/countries/${borderCountry.cca2}`">{{borderCountry.name.common}}</router-link>
+                    <router-link v-for="borderCountry in borderCountries" class="inline-block shadow-around dark:shadow-around-dark rounded text-sm font-light py-1.5 px-7 text-[1.1rem]" :to="`/countries/${borderCountry.cca2}`">{{borderCountry.name.common}}</router-link>
                 </div>
             </div>
         </div>
