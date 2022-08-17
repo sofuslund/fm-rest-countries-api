@@ -82,10 +82,14 @@ const info2 = computed(() => {
                 <span><i class="fa-solid fa-arrow-left-long mr-2"></i>Back</span>
             </button>
         </RouterLink>
-        <div class="flex flex-wrap md:flex-nowrap justify-between max-w-md sm:max-w-lg md:max-w-screen mx-auto">
-            <img class="w-full md:w-auto md:object-contain object-cover mb-10" :src="country.flags.svg" alt="flag">
+        <div class="flex flex-wrap justify-between max-w-md sm:max-w-lg md:max-w-full md:flex-nowrap md:gap-x-[4rem] mx-auto md:m-0">
+            <!-- Image -->
+            <img class="w-full md:max-w-[40%] md:object-contain object-cover mb-10" :src="country.flags.svg" alt="flag">
+            <!-- Text -->
             <div class="">
+                <!-- Heading -->
                 <h1 class="dark:text-white font-extrabold text-xl">{{country.name.common}}</h1>
+                <!-- Two info blocks -->
                 <div class="flex flex-wrap justify-between gap-x-10 flex-shrink-0">
                     <div class="my-3">
                         <p class="font-semibold leading-8 md:text-[.8rem]" v-for="(value, key, idx) of info1" :key="idx">
@@ -98,10 +102,11 @@ const info2 = computed(() => {
                         </p>
                     </div>
                 </div>
-                <h2 class="font-semibold dark:text-white mb-5 mt-8 text-lg">
-                    Border Countries:
-                </h2>
-                <div class="flex flex-wrap gap-x-3 gap-y-2 mb-20">
+                <!-- Border countries -->
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-24 mt-8 sm:mb-0">
+                    <h2 class="w-full font-semibold dark:text-white text-lg sm:float-left sm:w-auto sm:m-0 sm:mr-4">
+                        Border Countries:
+                    </h2>
                     <router-link v-for="borderCountry in borderCountries" class="inline-block shadow-around dark:shadow-around-dark rounded text-sm font-light py-1.5 px-7" :to="`/countries/${borderCountry.cca2}`">{{borderCountry.name.common}}</router-link>
                 </div>
             </div>
