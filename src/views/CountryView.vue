@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// TODO: text size problem on mobile
 // TODO: add pinia
 import { computed, onMounted, ref } from "vue";
 
@@ -94,22 +93,22 @@ const info2 = computed(() => {
                 <!-- Two info blocks -->
                 <div class="flex flex-wrap justify-between gap-x-10 flex-shrink-0">
                     <div class="my-3">
-                        <p class="font-semibold leading-8 md:text-[1rem]" v-for="(value, key, idx) of info1" :key="idx">
+                        <p class="font-semibold leading-8 text-sm md:text-[1rem]" v-for="(value, key, idx) of info1" :key="idx">
                             {{key}}: <span class="font-light">{{value}}</span>
                         </p>
                     </div>
                     <div class="my-3">
-                        <p class="font-semibold leading-8 md:text-[1rem]" v-for="(value, key, idx) of info2" :key="idx">
+                        <p class="font-semibold leading-8 text-sm md:text-[1rem]" v-for="(value, key, idx) of info2" :key="idx">
                             {{key}}: <span class="font-light">{{value}}</span>
                         </p>
                     </div>
                 </div>
                 <!-- Border countries -->
                 <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-24 mt-8 sm:mb-0">
-                    <h2 class="w-full font-semibold dark:text-white text-[1.2rem] sm:float-left sm:w-auto sm:m-0 sm:mr-4">
+                    <h2 class="w-full font-semibold dark:text-white text-lg sm:float-left sm:w-auto sm:m-0 sm:mr-4">
                         Border Countries:
                     </h2>
-                    <router-link v-for="borderCountry in borderCountries" class="inline-block shadow-around dark:shadow-around-dark rounded text-sm font-light py-1.5 px-7 text-[1.1rem]" :to="`/countries/${borderCountry.cca2}`">{{borderCountry.name.common}}</router-link>
+                    <router-link v-for="borderCountry in borderCountries" class="inline-block shadow-around dark:shadow-around-dark rounded text-xs font-light py-1.5 px-7 text-[1.1rem]" :to="`/countries/${borderCountry.cca2}`">{{borderCountry.name.common}}</router-link>
                 </div>
             </div>
         </div>
