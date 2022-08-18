@@ -1,4 +1,6 @@
 <script setup lang="ts">
+// TODO: text size problem on mobile
+// TODO: add pinia
 import { computed, onMounted, ref } from "vue";
 
 const props = defineProps<{ cca2: string}>();

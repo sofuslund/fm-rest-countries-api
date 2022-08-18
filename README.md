@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [frontendmentor](https://www.frontendmentor.io/solutions/country-site-using-typescript-vuejs-and-tailwindcss-6NjJSe2P0F)
+- Live Site URL: [netlify](https://fm07-rest-countries-api.netlify.app/#/home)
 
 ## My process
 
